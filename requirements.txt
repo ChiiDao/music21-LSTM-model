@@ -1,0 +1,8 @@
+numpy
+
+music21
+
+tensorflow
+keras-self-attention
+
+google-cloud-storage
