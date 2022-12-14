@@ -10,8 +10,8 @@ from typing import Dict, List
 ########PARAMETERS##############
 ################################
 
-from dotenv import load_env
-load_env()
+from dotenv import load_dotenv
+load_dotenv()
 
 DATA_PATH = os.environ.get('DATA_PATH')
 SEQ_LENGTH = int(os.environ.get('SEQ_LENGTH'))

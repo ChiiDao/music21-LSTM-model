@@ -17,9 +17,9 @@ from keras_self_attention import SeqSelfAttention
 
 from google.cloud import storage
 
-from dotenv import load_env
+from dotenv import load_dotenv
 
-load_env()
+load_dotenv()
 
 DATA_SOURCE = os.environ.get('DATA_SOURCE')
 BUCKET_NAME = os.environ.get('BUCKET_NAME')
