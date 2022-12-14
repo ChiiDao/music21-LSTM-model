@@ -17,7 +17,7 @@ from keras_self_attention import SeqSelfAttention
 
 from google.cloud import storage
 
-from python-dotenv import load_env
+from dotenv import load_env
 
 load_env()
 

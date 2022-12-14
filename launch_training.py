@@ -10,7 +10,7 @@ from typing import Dict, List
 ########PARAMETERS##############
 ################################
 
-from python-dotenv import load_env
+from dotenv import load_env
 load_env()
 
 DATA_PATH = os.environ.get('DATA_PATH')
