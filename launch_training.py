@@ -10,6 +10,9 @@ from typing import Dict, List
 ########PARAMETERS##############
 ################################
 
+from python-dotenv import load_env
+load_env()
+
 DATA_PATH = os.environ.get('DATA_PATH')
 SEQ_LENGTH = int(os.environ.get('SEQ_LENGTH'))
 PERIOD = int(os.environ.get('PERIOD'))
