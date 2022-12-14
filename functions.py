@@ -163,7 +163,7 @@ def train(model, network_input, network_output):
 
     now = datetime.now()
     model_timestamp= now.strftime('%d-%m-%H-%M-%S')
-    filepath = os.path.abspath(f"model_checkpoints_weights/{model_timestamp}/weights-1LSTMAtt1LSTMLayer-num_files_{NUM_FILES}-seq_length_{SEQ_LENGTH}-batch_size_{BATCH_SIZE}"+"-{epoch:03d}-{loss:.4f}.hdf5")
+    filepath = os.path.relpath(f"model_checkpoints_weights/{model_timestamp}/weights-1LSTMAtt1LSTMLayer-num_files_{NUM_FILES}-seq_length_{SEQ_LENGTH}-batch_size_{BATCH_SIZE}"+"-{epoch:03d}-{loss:.4f}.hdf5")
     checkpoint = ModelCheckpoint(
         filepath,
         period=PERIOD, #Save weights every xx epochs
@@ -186,7 +186,7 @@ def train(model, network_input, network_output):
         #Saving pickle file in the same folder
         pickle_filename = f"notes_pickles/notes_{NUM_FILES}files.pickle"
         pickle_path = pathlib.Path(pickle_filename.split('/')[1])
-        blob_name=str((weights_path/pickle_path).stem)
+        blob_name=str(weights_path/pickle_path)
         save_on_bucket(blob_name, pickle_filename)
 
 
@@ -204,3 +204,4 @@ def save_on_bucket(blob_name,filename) :
     bucket = storage_client.bucket(BUCKET_NAME)
     blob = bucket.blob(blob_name)
     blob.upload_from_filename(filename)
+    print(f"The picke {filename} has been upload on the cloud at {blob_name}")
